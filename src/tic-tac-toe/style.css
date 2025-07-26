@@ -1,0 +1,156 @@
+/* Ensure full-screen background coverage */
+html, body, #root {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Tic-Tac-Toe grid styling */
+.tic-tac-toe {
+    height: 600px;
+    width: 600px;
+    overflow: hidden;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Game buttons */
+button {
+    display: inline-flex;
+    height: 200px;
+    width: 200px;
+    font-size: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 0;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(195, 140, 140);
+}
+
+/* Grid borders */
+button:nth-child(1),
+button:nth-child(2),
+button:nth-child(3),
+button:nth-child(4),
+button:nth-child(5),
+button:nth-child(6) {
+    border-bottom: 4px solid #333;
+}
+
+button:nth-child(1),
+button:nth-child(4),
+button:nth-child(7),
+button:nth-child(2),
+button:nth-child(5),
+button:nth-child(8) {
+    border-right: 4px solid #333;
+}
+
+/* Animated gradient background */
+body {
+    background: linear-gradient(135deg, #e36257, #c13341, #441151, #2a0845);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease-in-out infinite;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+/* Winner popup */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background: white;
+    padding: 30px 40px; /* Adjusted padding */
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    animation: fadeIn 0.4s ease-in-out;
+}
+.player-turn {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.popup-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.popup-content button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+}
+.popup-content button:hover {
+    background: #45a049;
+}
+
+/* Root container */
+.App {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    background: transparent; /* Removed white background */
+}
+
+/* Game title */
+.game-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #fff;  
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Message box */
+.message {
+    position: absolute;
+    top: 100%;
+    background-color: antiquewhite;
+    left: 20%;
+}
+.message button {
+    background-color: rgb(144, 108, 79);
+}
+
+/* Gradient animation */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Fade-in for popup */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
